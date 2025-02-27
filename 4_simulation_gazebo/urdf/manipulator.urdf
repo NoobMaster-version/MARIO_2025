@@ -345,7 +345,7 @@
 
 <ros2_control name="GazeboSystem" type="system">
   <hardware>
-    <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    <plugin>gz_ros2_control/GazeboSimSystem</plugin>
   </hardware>
   <joint name="joint_1">
     <command_interface name="position"/>
@@ -389,14 +389,14 @@
   </joint>
 </ros2_control>
 <gazebo>
-    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control"> 
-    <!-- <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin"> -->
-      <!-- <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type> -->
+    <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
       <parameters>$(find simulation_gazebo)/config/manipulator.yaml</parameters>
       <robot_param>robot_description</robot_param>
       <robot_param_node>robot_state_publisher</robot_param_node>
       <controller_manager_name>controller_manager</controller_manager_name>
     </plugin>
 </gazebo>
+
+
 
 </robot>

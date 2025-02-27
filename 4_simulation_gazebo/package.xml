@@ -14,22 +14,23 @@
   <buildtool_depend>ros2_control</buildtool_depend>
    <buildtool_depend>gazebo_msgs </buildtool_depend>
   <buildtool_depend>geometry_msgs</buildtool_depend>
-  <buildtool_depend>gazebo_ros_pkgs</buildtool_depend>
-  <buildtool_depend>gazebo_ros_pkgs</buildtool_depend>
   <buildtool_depend>robot_state_publisher</buildtool_depend>
   <buildtool_depend>joint_state_broadcaster</buildtool_depend>
   <buildtool_depend>joint_trajectory_controller</buildtool_depend>
   <buildtool_depend>forward_command_controller</buildtool_depend>
   <buildtool_depend>joint_state_publisher</buildtool_depend>
-  <buildtool_depend>gazebo_ros2_control</buildtool_depend>
   <buildtool_depend>controller_manager</buildtool_depend>
   <buildtool_depend>robot_controllers</buildtool_depend>
   <buildtool_depend>control_toolbox</buildtool_depend>
   <buildtool_depend>ros2_control</buildtool_depend>
   <buildtool_depend>control_msgs</buildtool_depend>
-  <buildtool_depend>gazebo_ros</buildtool_depend>
   <buildtool_depend>xacro</buildtool_depend>
   <buildtool_depend>rviz2</buildtool_depend>
+
+  <buildtool_depend>ros_gz</buildtool_depend>
+  <buildtool_depend>ros_gz_sim</buildtool_depend>
+  <buildtool_depend>ros_gz_bridge</buildtool_depend>
+  <buildtool_depend>gz_ros2_control</buildtool_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

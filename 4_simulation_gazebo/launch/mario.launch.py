@@ -34,6 +34,7 @@ def generate_launch_description():
         output="both",
     )
 
+
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
         executable="spawner",
@@ -65,17 +66,15 @@ def generate_launch_description():
     robot_base_name = "mario"
     # Spawn ROBOT Set Gazebo
     spawn_robot = Node(
-        package='gazebo_ros',
-        executable='spawn_entity.py',
-        name='spawn_entity',
-        output='screen',
-        arguments=['-entity', robot_base_name,
-                    '-x', str(position[0]), '-y', str(position[1]
-                                                        ), '-z', str(position[2]),
-                    '-R', str(orientation[0]), '-P', str(orientation[1]
-                                                        ), '-Y', str(orientation[2]),
-                    '-topic', '/robot_description'
-                    ]
+    package='ros_gz_sim',
+    executable='create',
+    arguments=[
+        '-name', robot_base_name,
+        '-topic', '/robot_description',
+        '-x', str(position[0]), '-y', str(position[1]), '-z', str(position[2]),
+        '-R', str(orientation[0]), '-P', str(orientation[1]), '-Y', str(orientation[2]),
+    ],
+    output='screen'
     )
     
     delay_joint_state_broadcaster_spawner_after_spawn_robot = RegisterEventHandler(
