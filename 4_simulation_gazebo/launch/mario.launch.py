@@ -20,12 +20,12 @@ def generate_launch_description():
     'config',
     'manipulator.yaml'
     )
-    
+
     robot_desc_path = os.path.join(get_package_share_directory(package_description), "urdf", urdf_file)
     print("Fetching URDF ==>")
-    
+
     robot_description_content = Command(['xacro ',robot_desc_path])
-    
+
     robot_description = {"robot_description": robot_description_content}
     control_node = Node(
         package="controller_manager",
@@ -33,7 +33,6 @@ def generate_launch_description():
         parameters=[robot_description, config],
         output="both",
     )
-
 
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
@@ -66,32 +65,34 @@ def generate_launch_description():
     robot_base_name = "mario"
     # Spawn ROBOT Set Gazebo
     spawn_robot = Node(
-    package='ros_gz_sim',
-    executable='create',
-    arguments=[
-        '-name', robot_base_name,
-        '-topic', '/robot_description',
-        '-x', str(position[0]), '-y', str(position[1]), '-z', str(position[2]),
-        '-R', str(orientation[0]), '-P', str(orientation[1]), '-Y', str(orientation[2]),
-    ],
-    output='screen'
+        package='ros_ign_gazebo',
+        executable='create',
+        name='spawn_entity',
+        output='screen',
+        arguments=['-entity', robot_base_name,
+                    '-x', str(position[0]), '-y', str(position[1]
+                                                        ), '-z', str(position[2]),
+                    '-R', str(orientation[0]), '-P', str(orientation[1]
+                                                        ), '-Y', str(orientation[2]),
+                    '-topic', '/robot_description'
+                    ]
     )
-    
+
     delay_joint_state_broadcaster_spawner_after_spawn_robot = RegisterEventHandler(
         event_handler=OnProcessExit(
             target_action=spawn_robot,
             on_exit=[joint_state_broadcaster_spawner],
         )
     )
-    
+
     delay_robot_controller_spawner_after_joint_state_broadcaster_spawner = RegisterEventHandler(
         event_handler=OnProcessExit(
             target_action=joint_state_broadcaster_spawner,
             on_exit=[robot_controller_spawner],
         )
     )
-    
-    return LaunchDescription([  
+
+    return LaunchDescription([
         # load_joint_position_controller,
         control_node,
         robot_state_publisher_node,
