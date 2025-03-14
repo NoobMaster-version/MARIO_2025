@@ -9,7 +9,7 @@ from launch.event_handlers import (OnProcessStart, OnProcessExit)
 from launch_ros.descriptions import ParameterValue
 import random
 
-# this is the function launch  system will look for
+
 def generate_launch_description():
     ####### DATA INPUT ##########
     urdf_file = 'manipulator.urdf'
@@ -63,9 +63,9 @@ def generate_launch_description():
     orientation = [0.0, 0.0, 0.0]
     # Base Name or robot
     robot_base_name = "mario"
-    # Spawn ROBOT Set Gazebo
+    # Spawn ROBOT
     spawn_robot = Node(
-        package='ros_ign_gazebo',
+        package='ros_gz_sim',
         executable='create',
         name='spawn_entity',
         output='screen',
@@ -93,7 +93,6 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        # load_joint_position_controller,
         control_node,
         robot_state_publisher_node,
         spawn_robot,

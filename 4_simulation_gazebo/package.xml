@@ -12,7 +12,7 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
   <buildtool_depend>sensor_msgs</buildtool_depend>
   <buildtool_depend>ros2_control</buildtool_depend>
-   <buildtool_depend>gazebo_msgs </buildtool_depend>
+  <buildtool_depend>gazebo_msgs </buildtool_depend>
   <buildtool_depend>geometry_msgs</buildtool_depend>
   <buildtool_depend>robot_state_publisher</buildtool_depend>
   <buildtool_depend>joint_state_broadcaster</buildtool_depend>
@@ -27,9 +27,9 @@
   <buildtool_depend>xacro</buildtool_depend>
   <buildtool_depend>rviz2</buildtool_depend>
 
-  <buildtool_depend>ros_ign_gazebo</buildtool_depend>
-  <buildtool_depend>ros_ign_bridge</buildtool_depend>
-  <buildtool_depend>ros_ign_interfaces</buildtool_depend>
+  <buildtool_depend>ros_gz_sim</buildtool_depend>
+  <buildtool_depend>ros_gz_bridge</buildtool_depend>
+  <buildtool_depend>ros_gz_interfaces</buildtool_depend>
   <buildtool_depend>ign_ros2_control</buildtool_depend>
 
   <test_depend>ament_lint_auto</test_depend>
