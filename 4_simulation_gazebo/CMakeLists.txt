@@ -16,27 +16,22 @@ find_package(geometry_msgs REQUIRED)
 find_package(ros2_control REQUIRED)
 find_package(joint_state_broadcaster REQUIRED)
 find_package(joint_trajectory_controller REQUIRED)
-# find_package(joint_state_publisher REQUIRED)  
 find_package(robot_state_publisher REQUIRED)
-
-# Gazebo Harmonic dependencies
-find_package(ros_gz_sim REQUIRED)
-find_package(ros_gz_bridge REQUIRED)
-find_package(ros_gz_interfaces REQUIRED)
-find_package(ign_ros2_control REQUIRED)
+find_package(gz_ros2_control REQUIRED)
+find_package(gz_math7 REQUIRED)
+find_package(gz_transport12 REQUIRED)
 
 install(PROGRAMS
   scripts/forward_kinematics.py scripts/inverse_kinematics.py scripts/forward_kinematics_module.py scripts/inverse_kinematics_module.py
   DESTINATION lib/${PROJECT_NAME}
 )
 install(
-  DIRECTORY config launch meshes rviz scripts urdf
+  DIRECTORY config launch meshes rviz scripts urdf worlds
   DESTINATION share/${PROJECT_NAME}
 )
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
-
   ament_lint_auto_find_test_dependencies()
 endif()
 

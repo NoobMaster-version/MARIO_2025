@@ -1,18 +1,18 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>simulation_gazebo</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description
+    >Manipulator simulation for Gazebo Harmonic and ROS 2 Jazzy</description>
   <maintainer email="awshaikh_b21@me.vjti.ac.in">proto</maintainer>
-  <license>TODO: License declaration</license>
+  <license>MIT</license>
 
   <buildtool_depend>rclcpp</buildtool_depend>
   <buildtool_depend>std_msgs</buildtool_depend>
   <buildtool_depend>ament_cmake</buildtool_depend>
   <buildtool_depend>sensor_msgs</buildtool_depend>
   <buildtool_depend>ros2_control</buildtool_depend>
-  <buildtool_depend>gazebo_msgs </buildtool_depend>
   <buildtool_depend>geometry_msgs</buildtool_depend>
   <buildtool_depend>robot_state_publisher</buildtool_depend>
   <buildtool_depend>joint_state_broadcaster</buildtool_depend>
@@ -20,17 +20,16 @@
   <buildtool_depend>forward_command_controller</buildtool_depend>
   <buildtool_depend>joint_state_publisher</buildtool_depend>
   <buildtool_depend>controller_manager</buildtool_depend>
-  <buildtool_depend>robot_controllers</buildtool_depend>
-  <buildtool_depend>control_toolbox</buildtool_depend>
-  <buildtool_depend>ros2_control</buildtool_depend>
   <buildtool_depend>control_msgs</buildtool_depend>
   <buildtool_depend>xacro</buildtool_depend>
   <buildtool_depend>rviz2</buildtool_depend>
 
-  <buildtool_depend>ros_gz_sim</buildtool_depend>
-  <buildtool_depend>ros_gz_bridge</buildtool_depend>
-  <buildtool_depend>ros_gz_interfaces</buildtool_depend>
-  <buildtool_depend>ign_ros2_control</buildtool_depend>
+  <!-- Gazebo Harmonic dependencies -->
+  <buildtool_depend>gz_ros2_control</buildtool_depend>
+  <buildtool_depend>gz_math7</buildtool_depend>
+  <buildtool_depend>gz_transport12</buildtool_depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
