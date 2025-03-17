@@ -16,22 +16,39 @@ find_package(geometry_msgs REQUIRED)
 find_package(ros2_control REQUIRED)
 find_package(joint_state_broadcaster REQUIRED)
 find_package(joint_trajectory_controller REQUIRED)
+# find_package(joint_state_publisher REQUIRED)  
 find_package(robot_state_publisher REQUIRED)
+find_package(ros_gz REQUIRED)
+find_package(ros_gz_sim REQUIRED)
 find_package(gz_ros2_control REQUIRED)
-find_package(gz_math7 REQUIRED)
-find_package(gz_transport12 REQUIRED)
+find_package(ros_gz_bridge REQUIRED)
+# uncomment the following section in order to fill in
+# further dependencies manually.
+# find_package(<dependency> REQUIRED)
+# add_executable(publisher src/test.cpp)
+# ament_target_dependencies(publisher rclcpp std_msgs geometry_msgs sensor_msgs)
 
+# install(
+#   TARGETS publisher
+#   DESTINATION lib/${PROJECT_NAME}
+# )
 install(PROGRAMS
   scripts/forward_kinematics.py scripts/inverse_kinematics.py scripts/forward_kinematics_module.py scripts/inverse_kinematics_module.py
   DESTINATION lib/${PROJECT_NAME}
 )
 install(
-  DIRECTORY config launch meshes rviz scripts urdf worlds
+  DIRECTORY config launch meshes rviz scripts urdf
   DESTINATION share/${PROJECT_NAME}
 )
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
+  # the following line skips the linter which checks for copyrights
+  # uncomment the line when a copyright and license is not present in all source files
+  #set(ament_cmake_copyright_FOUND TRUE)
+  # the following line skips cpplint (only works in a git repo)
+  # uncomment the line when this package is not in a git repo
+  #set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
 
