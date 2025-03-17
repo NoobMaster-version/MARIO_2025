@@ -35,7 +35,8 @@ def generate_launch_description():
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py'),
-        )
+        ),
+        launch_arguments={'gz_args': '--verbose -r'}.items()
     )    
     # model launch
     mario = IncludeLaunchDescription(
@@ -47,3 +48,4 @@ def generate_launch_description():
         gazebo,
         mario
     ])
+
